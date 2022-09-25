@@ -6,9 +6,11 @@
 /*   By: tpotilli <tpotilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 10:09:06 by tpotilli          #+#    #+#             */
-/*   Updated: 2022/09/25 13:11:50 by tpotilli         ###   ########.fr       */
+/*   Updated: 2022/09/25 15:36:23 by tpotilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
 
 int	ft_atoi(char *str)
 {
@@ -21,7 +23,7 @@ int	ft_atoi(char *str)
 	i = 0;
 	cpt = 0;
 	sign = 1;
-	while (str[i] == ' ' || str[i] >= '9' || str[i] <= 13)
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
 		i++;
 	while (str[i] == '+' || str[i] == '-')
 	{
@@ -33,8 +35,14 @@ int	ft_atoi(char *str)
 		sign = -1;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		resultat = resultat * 10 + str[i] - '0';
+		resultat = resultat * 10 + (str[i] - '0');
 		i++;
 	}
 	return (resultat * sign);
+}
+
+int main()
+{
+	char *tab = "   -+-+123fds45";
+	printf("%d",ft_atoi(tab));
 }
