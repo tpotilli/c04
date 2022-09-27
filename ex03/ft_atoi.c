@@ -6,11 +6,9 @@
 /*   By: tpotilli <tpotilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 10:09:06 by tpotilli          #+#    #+#             */
-/*   Updated: 2022/09/25 15:36:23 by tpotilli         ###   ########.fr       */
+/*   Updated: 2022/09/26 19:53:17 by tpotilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 int	ft_atoi(char *str)
 {
@@ -39,10 +37,4 @@ int	ft_atoi(char *str)
 		i++;
 	}
 	return (resultat * sign);
-}
-
-int main()
-{
-	char *tab = "   -+-+123fds45";
-	printf("%d",ft_atoi(tab));
 }
