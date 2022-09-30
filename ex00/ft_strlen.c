@@ -6,7 +6,7 @@
 /*   By: tpotilli <tpotilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 09:47:07 by tpotilli          #+#    #+#             */
-/*   Updated: 2022/09/25 12:57:25 by tpotilli         ###   ########.fr       */
+/*   Updated: 2022/09/28 13:21:33 by tpotilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@ int	ft_strlen(char *str)
 {
 	int	i;
 
+	i = 0;
 	while (str[i])
 	{
 		i++;

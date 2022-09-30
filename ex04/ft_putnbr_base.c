@@ -6,7 +6,7 @@
 /*   By: tpotilli <tpotilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 07:39:38 by tpotilli          #+#    #+#             */
-/*   Updated: 2022/09/27 09:27:13 by tpotilli         ###   ########.fr       */
+/*   Updated: 2022/09/28 13:21:47 by tpotilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,40 +27,45 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-int	ft_check_base(char *tab, int nbr)
+int	ft_check_base(char *base)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	j = 1;
-	while (tab[i])
+	j = 0;
+	if (ft_strlen(base) < 2)
+		return (0);
+	while (base[i])
 	{
-		if (tab[i] == tab[j])
-			return (1);
-		if (tab[i] == '+' || tab[i] == '-')
-			return (1);
-		j++;
+		j = i + 1;
+		while (base[j])
+		{
+			if (base[i] == base[j])
+				return (0);
+			else
+				j++;
+		}
+		if (base[i] == '+' || base[i] == '-' || base[i] <= 32 || base[i] == 127)
+			return (0);
 		i++;
 	}
-	if (nbr <= 1)
-		return (1);
-	return (0);
+	return (1);
 }
 
 void	ft_putnbr_base(int nbr, char *base)
 {
 	unsigned int	sizebase;
-	int				i;
 
 	sizebase = ft_strlen(base);
-	i = 0;
+	if (ft_check_base(base) == 0)
+		return ;
 	if (nbr < 0)
 	{
 		ft_putchar('-');
 		nbr *= (-1);
 	}
-	if (nbr > sizebase - 1)
+	if ((unsigned int)nbr > sizebase - 1)
 	{
 		ft_putnbr_base(nbr / sizebase, base);
 		ft_putnbr_base(nbr % sizebase, base);
